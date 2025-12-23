@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card" style="max-width:680px; margin:0 auto;">
+  <h2>Create your account</h2>
+  <form method="post">
+    <label>Name</label>
+    <input class="input" name="name" required>
+    <label>Email</label>
+    <input class="input" type="email" name="email">
+    <label>Phone</label>
+    <input class="input" type="text" name="phone">
+    <label>Password</label>
+    <input class="input" type="password" name="password" required>
+    <div style="margin-top:10px;"><button class="btn">Sign up</button></div>
+  </form>
+</div>
+{% endblock %}

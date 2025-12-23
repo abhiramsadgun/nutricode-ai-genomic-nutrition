@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NutriCode • Precision Diets with DNA & AI</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <div class="hero-anim">
+    <div class="pulse" style="left:60%; top:5%"></div>
+    <div class="pulse"></div>
+    <div class="pulse"></div>
+  </div>
+  <div class="container">
+    <div class="header">
+      <div class="logo">NUTRI<b>CODE</b></div>
+      {% if current_user.is_authenticated %}
+      <div>
+        <span class="small">Signed in as {{ current_user.name or current_user.email or current_user.phone }}</span>
+        <a class="btn secondary" href="{{ url_for('logout') }}">Logout</a>
+      </div>
+      {% endif %}
+    </div>
+    {% block content %}{% endblock %}
+    <footer>© {{ 2025 }} NutriCode • Built with love and a dash of science</footer>
+  </div>
+</body>
+</html>

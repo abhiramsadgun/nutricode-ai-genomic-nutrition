@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card">
+  <h2>Choose an action</h2>
+  <div class="grid cols-3" style="margin-top:12px;">
+    <a class="card" href="{{ url_for('dna_portal') }}"><b>DNA Sample Collection</b><p class="small">Submit sample ID, date, collector & type.</p></a>
+    <a class="card" href="{{ url_for('analyze_pdf') }}"><b>Analyze PDF (Health Report)</b><p class="small">Upload report, get AI diet.</p></a>
+    <a class="card" href="{{ url_for('diet_view') }}"><b>Diet to be followed</b><p class="small">See your latest plan.</p></a>
+    <a class="card" href="{{ url_for('contact_doctor') }}"><b>Contact Doctor</b><p class="small">Dr. Vittal Kumar • 8328663486</p></a>
+    <a class="card" href="{{ url_for('register_dna_test') }}"><b>Register for DNA Test</b><p class="small">Book a slot & pickup.</p></a>
+    <a class="card" href="{{ url_for('about_us') }}"><b>About Us</b><p class="small">Our mission & science.</p></a>
+    <a class="card" href="{{ url_for('health_chat') }}"><b>Health Chat</b><p class="small">Safe triage assistant (non-diagnostic)</p></a>
+  </div>
+</div>
+{% endblock %}

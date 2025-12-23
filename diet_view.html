@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card">
+  <h2>Your Latest Diet Plan</h2>
+  {% if plan %}
+    <div class="small">Condition inferred: <span class="badge">{{ inferred_condition }}</span></div>
+    {% include "partials/plan.html" %}
+  {% else %}
+    <p class="small">No plan yet. Try <a href="{{ url_for('analyze_pdf') }}">analyzing a report</a> or <a href="{{ url_for('dna_portal') }}">submitting a DNA sample</a>.</p>
+  {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card">
+  <h2>DNA Sample Collection Portal</h2>
+  <form method="post">
+    <div class="grid cols-2">
+      <div>
+        <label>Sample ID</label>
+        <input class="input" name="sample_id" required>
+      </div>
+      <div>
+        <label>Collection Date</label>
+        <input class="input" type="date" name="collection_date" required>
+      </div>
+      <div>
+        <label>Collector Name</label>
+        <input class="input" name="collector_name" required>
+      </div>
+      <div>
+        <label>Sample Type</label>
+        <select class="input" name="sample_type" required>
+          <option>Blood</option>
+          <option>Saliva</option>
+          <option>Hair</option>
+          <option>Other</option>
+        </select>
+      </div>
+    </div>
+    <div style="margin-top:10px;"><button class="btn">Submit & Generate Diet</button></div>
+  </form>
+</div>
+{% if plan %}
+<div class="card" style="margin-top:16px;">
+  <h3>AI Diet Recommendation <span class="badge">{{ inferred_condition }}</span></h3>
+  {% include "partials/plan.html" %}
+</div>
+{% endif %}
+{% endblock %}

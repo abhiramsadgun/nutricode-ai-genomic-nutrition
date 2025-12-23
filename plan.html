@@ -1,0 +1,30 @@
+<div class="grid cols-3" style="margin-top:8px;">
+  <div>
+    <h4>Breakfast</h4>
+    <ul>{% for i in plan.breakfast %}<li>{{ i }}</li>{% endfor %}</ul>
+  </div>
+  <div>
+    <h4>Lunch</h4>
+    <ul>{% for i in plan.lunch %}<li>{{ i }}</li>{% endfor %}</ul>
+  </div>
+  <div>
+    <h4>Dinner</h4>
+    <ul>{% for i in plan.dinner %}<li>{{ i }}</li>{% endfor %}</ul>
+  </div>
+</div>
+<div class="grid cols-2" style="margin-top:8px;">
+  <div>
+    <h4>Snacks</h4>
+    <ul>{% for i in plan.snacks %}<li>{{ i }}</li>{% endfor %}</ul>
+  </div>
+  <div>
+    <h4>Avoid</h4>
+    <ul>{% for i in plan.avoid %}<li>{{ i }}</li>{% endfor %}</ul>
+  </div>
+</div>
+{% if plan.tips %}
+<div style="margin-top:8px;">
+  <h4>Tips</h4>
+  <ul>{% for i in plan.tips %}<li>{{ i }}</li>{% endfor %}</ul>
+</div>
+{% endif %}

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="grid cols-2">
+  <div class="card">
+    <h2>Welcome back 👋</h2>
+    <p class="small">Sign in with your email/phone and password.</p>
+    <form method="post">
+      <label>Email</label>
+      <input class="input" type="email" name="email" placeholder="you@example.com">
+      <label>Phone</label>
+      <input class="input" type="text" name="phone" placeholder="+91-xxxxxxxxxx">
+      <label>Password</label>
+      <input class="input" type="password" name="password" placeholder="••••••••">
+      <div style="margin-top:10px; display:flex; gap:10px;">
+        <button class="btn" type="submit">Login</button>
+        <a class="btn secondary" href="{{ url_for('register') }}">Create account</a>
+      </div>
+    </form>
+  </div>
+  <div class="card">
+    <h2>Precision diets, simplified</h2>
+    <p>Upload a health report PDF or register a DNA sample. Our AI infers likely conditions and crafts a diet plan you can follow immediately.</p>
+    <ul>
+      <li>• DNA sample portal</li>
+      <li>• PDF report analyzer (AI)</li>
+      <li>• Personalized diet plan</li>
+      <li>• Contact doctor: <b>Dr. Vittal Kumar</b> — <span class="badge">8328663486</span></li>
+    </ul>
+  </div>
+</div>
+{% endblock %}

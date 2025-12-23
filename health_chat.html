@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card" style="max-width:900px; margin:0 auto;">
+  <h2>NutriCode Health Chat (Safe Triage)</h2>
+  <p class="small">This assistant does not diagnose. It provides general guidance and flags urgent symptoms. For emergencies, call local services.</p>
+  <div id="chatbox" style="height:380px; overflow:auto; padding:12px; border:1px solid rgba(255,255,255,0.08); border-radius:12px; margin-bottom:10px;">
+    <div><span class="badge">Assistant</span> Hi! Describe your symptom (e.g., "persistent cough 4 weeks", "changing mole", "chest pain").</div>
+  </div>
+  <div style="display:flex; gap:8px;">
+    <input id="msg" class="input" placeholder="Type your message...">
+    <button class="btn" onclick="sendMsg()">Send</button>
+  </div>
+</div>
+<script>
+async function sendMsg(){
+  const input = document.getElementById('msg');
+  const text = input.value.trim();
+  if(!text) return;
+  const box = document.getElementById('chatbox');
+  box.innerHTML += `<div><b>You:</b> ${text}</div>`;
+  input.value='';
+  const res = await fetch('/api/health-chat', {
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({message:text})
+  });
+  const data = await res.json();
+  const formatted = data.reply.replace(/\n/g,'<br>');
+  box.innerHTML += `<div><span class="badge">Assistant</span> ${formatted}</div>`;
+  box.scrollTop = box.scrollHeight;
+}
+</script>
+{% endblock %}

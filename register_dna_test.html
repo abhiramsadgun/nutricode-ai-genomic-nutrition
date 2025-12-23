@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card" style="max-width:780px; margin:0 auto;">
+  <h2>Register for DNA Test</h2>
+  <form>
+    <div class="grid cols-2">
+      <div>
+        <label>Full Name</label>
+        <input class="input" placeholder="Your name">
+      </div>
+      <div>
+        <label>Phone</label>
+        <input class="input" placeholder="+91-xxxxxxxxxx">
+      </div>
+      <div>
+        <label>Address</label>
+        <input class="input" placeholder="Pickup address">
+      </div>
+      <div>
+        <label>Preferred Date</label>
+        <input class="input" type="date">
+      </div>
+    </div>
+    <div style="margin-top:10px;"><button class="btn" type="button" onclick="alert('Registered! Our agent will contact you.')">Submit</button></div>
+  </form>
+</div>
+{% endblock %}

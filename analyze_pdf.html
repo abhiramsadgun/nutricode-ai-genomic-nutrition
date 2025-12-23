@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card">
+  <h2>Analyze PDF Health Report</h2>
+  <form method="post" enctype="multipart/form-data">
+    <input class="input" type="file" name="pdf" accept="application/pdf" required>
+    <div style="margin-top:10px;"><button class="btn">Upload & Analyze</button></div>
+  </form>
+</div>
+{% if plan %}
+<div class="card" style="margin-top:16px;">
+  <h3>AI Diet Recommendation <span class="badge">{{ inferred_condition }}</span></h3>
+  {% include "partials/plan.html" %}
+</div>
+{% endif %}
+{% endblock %}

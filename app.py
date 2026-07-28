@@ -8,6 +8,8 @@ from ai.health_rules import triage_reply, DISCLAIMER
 from config import Config
 import json
 
+
+
 app = Flask(__name__)
 app.config.from_object(Config)
 db.init_app(app)

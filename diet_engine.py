@@ -87,16 +87,13 @@ def infer_condition_from_text(text: str) -> str:
     tsh = _find_float(r'tsh\s*[:=]?\s*([0-9]+(?:\.[0-9]+)?)', t)
     if tsh is not None and (tsh > 4.5 or tsh < 0.4):
         return "thyroid"
-
     # Cholesterol
     total_chol = _find_float(r'(?:total\s+cholesterol|cholesterol\s*total)\s*[:=]?\s*([0-9]+(?:\.[0-9]+)?)', t)
     ldl = _find_float(r'ldl\s*[:=]?\s*([0-9]+(?:\.[0-9]+)?)', t)
     tg = _find_float(r'(?:triglycerides|tg)\s*[:=]?\s*([0-9]+(?:\.[0-9]+)?)', t)
     if (total_chol and total_chol >= 240) or (ldl and ldl >= 160) or (tg and tg >= 200):
         return "cholesterol"
-
     return "normal"
-
 def diet_for_condition(condition: str, sample_type: str = None, pref: str = None) -> dict:
     plan = dict(BASE_DIETS.get(condition, BASE_DIETS["normal"]))
     if sample_type:
